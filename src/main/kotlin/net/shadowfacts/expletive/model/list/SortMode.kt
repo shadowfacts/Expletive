@@ -9,6 +9,9 @@ enum class SortMode(val id: String) {
 	LAST_RELEASED_FILE("updated"),
 	NAME("name"),
 	POPULARITY("popularity"),
-	TOTAL_DOWNLOADS("downloads")
+	TOTAL_DOWNLOADS("downloads");
+
+	val urlQueryParam: String
+		get() = "filter-sort=$id"
 
 }

@@ -5,7 +5,8 @@ package net.shadowfacts.expletive.model.modpack
  */
 enum class ModpackCategory(val displayName: String) {
 
-	ADVENTURE_RPG("Adventure and RPG"),
+	ALL("All"),
+	ADVENTURE_AND_RPG("Adventure and RPG"),
 	COMBAT_PVP("Combat / PVP"),
 	EXPLORATION("Exploration"),
 	EXTRA_LARGE("Extra Large"),
@@ -20,6 +21,12 @@ enum class ModpackCategory(val displayName: String) {
 	TECH("Tech");
 
 	val url: String
-		get() = name.toLowerCase().replace('_', '-')
+		get() = if (this == ALL) "" else ("/" + name.toLowerCase().replace('_', '-'))
+
+	companion object {
+		fun get(name: String): ModpackCategory {
+			return ModpackCategory.valueOf(name.toUpperCase().replace('-', '_'))
+		}
+	}
 
 }

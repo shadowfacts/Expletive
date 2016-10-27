@@ -1,9 +1,11 @@
 package net.shadowfacts.expletive.model.resourcepack
 
+import net.shadowfacts.expletive.list.ListCategory
+
 /**
  * @author shadowfacts
  */
-enum class ResourcePackCategory(val displayName: String) {
+enum class ResourcePackCategory(val displayName: String) : ListCategory<ResourcePack> {
 
 	ALL("All"),
 	SIXTEEN_X("16x"),
@@ -21,7 +23,7 @@ enum class ResourcePackCategory(val displayName: String) {
 	TRADITIONAL("Traditional"),
 	MISC("Miscellaneous");
 
-	val url: String
+	override val url: String
 		get() = if (this == ALL) "" else ("/" + name.toLowerCase().replace('_', '-'))
 
 }

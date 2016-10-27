@@ -1,9 +1,11 @@
 package net.shadowfacts.expletive.model.modpack
 
+import net.shadowfacts.expletive.list.ListCategory
+
 /**
  * @author shadowfacts
  */
-enum class ModpackCategory(val displayName: String) {
+enum class ModpackCategory(val displayName: String) : ListCategory<Modpack> {
 
 	ALL("All"),
 	ADVENTURE_AND_RPG("Adventure and RPG"),
@@ -20,7 +22,7 @@ enum class ModpackCategory(val displayName: String) {
 	SMALL_LIGHT("Small / Light"),
 	TECH("Tech");
 
-	val url: String
+	override val url: String
 		get() = if (this == ALL) "" else ("/" + name.toLowerCase().replace('_', '-'))
 
 	companion object {

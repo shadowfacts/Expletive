@@ -19,10 +19,16 @@ enum class GameVersion(val displayName: String, val id: Int) {
 	ONE_TEN_TWO("1.10.2", 6170);
 
 	val urlQueryParam: String
-		get() = if (this == ALL) "" else "filter-game-version=$ENTITY_ID:$id"
+		get() = "filter-game-version=" + if (this == ALL) "" else (ENTITY_ID + ":" + id)
 
 	companion object {
 		val ENTITY_ID = "2020709689"
+
+		fun get(name: String): GameVersion {
+			return GameVersion.values().filter {
+				it.displayName.equals(name, ignoreCase = true)
+			}.firstOrNull() ?: ALL
+		}
 	}
 
 }

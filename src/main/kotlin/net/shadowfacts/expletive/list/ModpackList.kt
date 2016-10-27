@@ -21,7 +21,7 @@ object ModpackList : ListBrowser<Modpack>() {
 		val categories = el.select("div.categories-box div.category-icons a").map {
 			ModpackCategory.get(it.attr("href").split('/').last())
 		}.toTypedArray()
-		return Modpack(id, name, authors, tagline, icon, categories)
+		return Modpack(id, name, tagline, icon, authors, categories)
 	}
 
 }

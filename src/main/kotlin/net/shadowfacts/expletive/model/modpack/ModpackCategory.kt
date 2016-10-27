@@ -27,7 +27,9 @@ enum class ModpackCategory(val displayName: String) : ListCategory<Modpack> {
 
 	companion object {
 		fun get(name: String): ModpackCategory {
-			return ModpackCategory.valueOf(name.toUpperCase().replace('-', '_'))
+			return ModpackCategory.values().filter {
+				it.name.equals(name, ignoreCase = true) || it.displayName.equals(name, ignoreCase = true)
+			}.firstOrNull() ?: ALL
 		}
 	}
 

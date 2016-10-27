@@ -1,6 +1,5 @@
 .DS_Store
-alllines.txt
-scripts/*
+run/
 
 # java
 *.class
@@ -15,4 +14,3 @@ scripts/*
 *.iml
 *.ipr
 *.iws
-0
